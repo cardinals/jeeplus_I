@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeeplus.modules.tb_facility.dao.FacilityDao">
+    
+	<sql id="facilityColumns">
+		a.id AS "id",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		a.number AS "number",
+		a.name AS "name",
+		a.area AS "area.id",
+		a.user_id AS "user.id",
+		a.type AS "type",
+		area.name AS "area.name",
+		user.name AS "user.name"
+	</sql>
+	
+	<sql id="facilityJoins">
+		LEFT JOIN sys_area area ON area.id = a.area
+		LEFT JOIN sys_user user ON user.id = a.user_id
+	</sql>
+	
+    
+	<select id="get" resultType="Facility" >
+		SELECT 
+			<include refid="facilityColumns"/>
+		FROM tb_facility a
+		<include refid="facilityJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Facility" >
+		SELECT 
+			<include refid="facilityColumns"/>
+		FROM tb_facility a
+		<include refid="facilityJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Facility" >
+		SELECT 
+			<include refid="facilityColumns"/>
+		FROM tb_facility a
+		<include refid="facilityJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO tb_facility(
+			id,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag,
+			number,
+			name,
+			area,
+			user_id,
+			type
+		) VALUES (
+			#{id},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag},
+			#{number},
+			#{name},
+			#{area.id},
+			#{user.id},
+			#{type}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE tb_facility SET 	
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks},
+			number = #{number},
+			name = #{name},
+			area = #{area.id},
+			user_id = #{user.id},
+			type = #{type}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!--物理删除-->
+	<update id="delete">
+		DELETE FROM tb_facility
+		WHERE id = #{id}
+	</update>
+	
+	<!--逻辑删除-->
+	<update id="deleteByLogic">
+		UPDATE tb_facility SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="Facility" statementType="STATEMENT">
+		select * FROM tb_facility  where ${propertyName} = '${value}'
+	</select>
+	
+</mapper>
