@@ -36,7 +36,7 @@ import com.jeeplus.modules.tb_facility.service.FacilityService;
 /**
  * 设备表Controller
  * @author zgb
- * @version 2018-10-10
+ * @version 2018-10-11
  */
 @Controller
 @RequestMapping(value = "${adminPath}/tb_facility/facility")

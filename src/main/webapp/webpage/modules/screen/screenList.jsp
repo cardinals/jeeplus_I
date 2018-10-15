@@ -88,7 +88,7 @@
 				<th  class="sort-column area.name">区域</th>
 				<th  class="sort-column type">默认类型</th>
 				<th  class="sort-column article">文字</th>
-				<th  class="sort-column logo">图标</th>
+				<%--<th  class="sort-column logo">图标</th>--%>
 				<th>操作</th>
 			</tr>
 		</thead>
@@ -108,9 +108,9 @@
 				<td>
 					${screen.article}
 				</td>
-				<td>
+				<%--<td>
 					${screen.logo}
-				</td>
+				</td>--%>
 				<td>
 					<shiro:hasPermission name="screen:screen:view">
 						<a href="#" onclick="openDialogView('查看屏幕控制', '${ctx}/screen/screen/form?id=${screen.id}','800px', '500px')" class="btn btn-info btn-xs" ><i class="fa fa-search-plus"></i> 查看</a>

@@ -44,7 +44,5 @@ public class PieClassService extends CrudService<PieClassDao, PieClass> {
 		super.delete(pieClass);
 	}
 	
-	
-	
-	
+
 }

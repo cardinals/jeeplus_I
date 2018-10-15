@@ -16,7 +16,7 @@ import com.jeeplus.modules.tb_facility.dao.FacilityDao;
 /**
  * 设备表Service
  * @author zgb
- * @version 2018-10-10
+ * @version 2018-10-11
  */
 @Service
 @Transactional(readOnly = true)

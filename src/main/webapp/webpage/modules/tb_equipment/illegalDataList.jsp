@@ -48,7 +48,7 @@
 				<form:input path="name" htmlEscape="false" maxlength="64"  class=" form-control input-sm"/>
 			<span>人员区域：</span>
 				<sys:treeselect id="area" name="area.id" value="${illegalData.area.id}" labelName="area.name" labelValue="${illegalData.area.name}"
-					title="区域" url="/sys/area/treeData" cssClass="form-control input-sm" allowClear="true" notAllowSelectParent="true"/>
+					title="区域" url="/sys/area/treeData" cssClass="form-control input-sm" allowClear="true" notAllowSelectParent="false"/>
 		 </div>	
 	</form:form>
 	<br/>
@@ -92,7 +92,7 @@
 				<th  class="sort-column name">名字</th>
 				<th  class="sort-column idCard">身份证号</th>
 				<th  class="sort-column area.name">人员区域</th>
-				<th  class="sort-column photoes">违法的图片，以逗号分隔</th>
+				<th  class="sort-column photoes">违法图片</th>
 				<th>操作</th>
 			</tr>
 		</thead>

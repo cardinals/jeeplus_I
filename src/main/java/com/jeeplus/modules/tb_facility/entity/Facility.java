@@ -12,7 +12,7 @@ import com.jeeplus.common.utils.excel.annotation.ExcelField;
 /**
  * 设备表Entity
  * @author zgb
- * @version 2018-10-10
+ * @version 2018-10-11
  */
 public class Facility extends DataEntity<Facility> {
 	

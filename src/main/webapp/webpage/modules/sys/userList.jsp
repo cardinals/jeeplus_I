@@ -16,14 +16,14 @@
 		<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 		<table:sortColumn id="orderBy" name="orderBy" value="${page.orderBy}" callback="sortOrRefresh();"/><!-- 支持排序 -->
 		<div class="form-group">
-			<span>归属公司：</span>
+			<%--<span>归属公司：</span>
 				<sys:treeselect id="company" name="company.id" value="${user.company.id}" labelName="company.name" labelValue="${user.company.name}" 
 				title="公司" url="/sys/office/treeData?type=1" cssClass=" form-control input-sm" allowClear="true"/>
-			<span>登录名：</span>
+		--%>	<span>登录名：</span>
 				<form:input path="loginName" htmlEscape="false" maxlength="50" class=" form-control input-sm"/>
-			<span>归属部门：</span>
+			<span>归属机构：</span>
 				<sys:treeselect id="office" name="office.id" value="${user.office.id}" labelName="office.name" labelValue="${user.office.name}" 
-				title="部门" url="/sys/office/treeData?type=2" cssClass=" form-control input-sm" allowClear="true" notAllowSelectParent="true"/>
+				title="部门" url="/sys/office/treeData?type=2" cssClass=" form-control input-sm" allowClear="true" notAllowSelectParent="false"/>
 			<span>姓&nbsp;&nbsp;&nbsp;名：</span>
 				<form:input path="name" htmlEscape="false" maxlength="50" class=" form-control input-sm"/>
 		
@@ -70,8 +70,8 @@
 				<th class="sort-column name">姓名</th>
 				<th class="sort-column phone">电话</th>
 				<th class="sort-column mobile">手机</th>
-				<th class="sort-column c.name">归属公司</th>
-				<th class="sort-column o.name">归属部门</th>
+				<%--<th class="sort-column c.name">归属大区</th>--%>
+				<th class="sort-column o.name">归属机构</th>
 				<th>操作</th>
 			</tr>
 		</thead>
@@ -83,7 +83,7 @@
 				<td>${user.name}</td>
 				<td>${user.phone}</td>
 				<td>${user.mobile}</td>
-				<td>${user.company.name}</td>
+				<%--<td>${user.company.name}</td>--%>
 				<td>${user.office.name}</td>
 				<td>
 					<shiro:hasPermission name="sys:user:view">

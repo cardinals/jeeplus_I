@@ -48,7 +48,7 @@
 					<td class="width-15 active"><label class="pull-right">区域：</label></td>
 					<td class="width-35">
 						<sys:treeselect id="area" name="area.id" value="${screen.area.id}" labelName="area.name" labelValue="${screen.area.name}"
-							title="区域" url="/sys/area/treeData" cssClass="form-control " allowClear="true" notAllowSelectParent="true"/>
+							title="区域" url="/sys/area/treeData" cssClass="form-control " allowClear="true" notAllowSelectParent="false"/>
 					</td>
 				</tr>
 				<tr>

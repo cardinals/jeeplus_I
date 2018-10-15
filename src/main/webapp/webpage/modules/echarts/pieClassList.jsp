@@ -9,6 +9,7 @@
 		$(document).ready(function() {
 		});
 	</script>
+
 </head>
 <body class="gray-bg">
 <%@ include file="/webpage/include/echarts.jsp"%>

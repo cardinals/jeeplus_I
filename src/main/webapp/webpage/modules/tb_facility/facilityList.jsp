@@ -44,6 +44,14 @@
 		<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 		<table:sortColumn id="orderBy" name="orderBy" value="${page.orderBy}" callback="sortOrRefresh();"/><!-- 支持排序 -->
 		<div class="form-group">
+			<span>设备区域：</span>
+				<sys:treeselect id="area" name="area.id" value="${facility.area.id}" labelName="area.name" labelValue="${facility.area.name}"
+					title="区域" url="/sys/area/treeData" cssClass="form-control input-sm" allowClear="true" notAllowSelectParent="false"/>
+			<span>设备类型：</span>
+				<form:select path="type"  class="form-control m-b">
+					<form:option value="" label=""/>
+					<form:options items="${fns:getDictList('facility_type')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
+				</form:select>
 		 </div>	
 	</form:form>
 	<br/>
@@ -85,10 +93,11 @@
 			<tr>
 				<th> <input type="checkbox" class="i-checks"></th>
 				<%--<th  class="sort-column remarks">备注信息</th>--%>
+				<th  class="sort-column user.name">设备管理员</th>
 				<th  class="sort-column number">设备编号</th>
 				<th  class="sort-column name">设备名</th>
 				<th  class="sort-column area.name">设备区域</th>
-				<th  class="sort-column user.name">设备管理员</th>
+
 				<th  class="sort-column type">设备类型</th>
 				<th>操作</th>
 			</tr>
@@ -97,9 +106,12 @@
 		<c:forEach items="${page.list}" var="facility">
 			<tr>
 				<td> <input type="checkbox" id="${facility.id}" class="i-checks"></td>
-				<%--<td><a  href="#" onclick="openDialogView('查看设备表功能', '${ctx}/tb_facility/facility/form?id=${facility.id}','800px', '500px')">
-					${facility.remarks}
-				</a></td>--%>
+					<%--<td><a  href="#" onclick="openDialogView('查看设备表功能', '${ctx}/tb_facility/facility/form?id=${facility.id}','800px', '500px')">
+                        ${facility.remarks}
+                    </a></td>--%>
+				<td>
+						${facility.user.name}
+				</td>
 				<td>
 					${facility.number}
 				</td>
@@ -109,11 +121,8 @@
 				<td>
 					${facility.area.name}
 				</td>
-				<td>
-					${facility.user.name}
-				</td>
-				<td>
 
+				<td>
 					${fns:getDictLabel(facility.type, 'facility_type', '')}
 				</td>
 				<td>
