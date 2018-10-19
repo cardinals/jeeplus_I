@@ -86,6 +86,7 @@
 						$("#${id}Id").val(ids.join(",").replace(/u_/ig,""));
 						$("#${id}Name").val(names.join(","));
 						$("#${id}Name").focus();
+
 						top.layer.close(index);
 				    	       },
     	cancel: function(index){ //或者使用btn2

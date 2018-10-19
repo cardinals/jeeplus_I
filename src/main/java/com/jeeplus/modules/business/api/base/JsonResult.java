@@ -1,4 +1,4 @@
-package com.jeeplus.modules.interfaces.api.base;
+package com.jeeplus.modules.business.api.base;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.common.collect.Maps;

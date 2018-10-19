@@ -1,4 +1,4 @@
-package com.jeeplus.modules.interfaces.api.web;
+package com.jeeplus.modules.business.api.web;
 
 import com.jeeplus.common.config.Global;
 import com.jeeplus.common.utils.Encodes;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import com.jeeplus.modules.interfaces.api.base.JsonResult;
-import com.jeeplus.modules.interfaces.api.annotation.Json;
+import com.jeeplus.modules.business.api.base.JsonResult;
+import com.jeeplus.modules.business.api.annotation.Json;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -44,6 +44,7 @@ public class ApiBaseController extends BaseController {
 
     /**
      * 登录状态检查
+     *
      * @return
      */
     @RequestMapping(value = "loginCheck")

@@ -526,7 +526,7 @@ public class UserController extends BaseController {
 	 * web端ajax验证手机号是否可以注册（数据库中不存在）
 	 */
 	@ResponseBody
-	@RequestMapping(value = "validateMobile")
+ 	@RequestMapping(value = "validateMobile")
 	public boolean validateMobile(String mobile, HttpServletResponse response, Model model) {
 		  User user =  userDao.findUniqueByProperty("mobile", mobile);
 		    if(user == null){

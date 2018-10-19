@@ -1,4 +1,4 @@
-package com.jeeplus.modules.interfaces.api.base;
+package com.jeeplus.modules.business.api.base;
 
 public enum ErrorCode {
     Login_Error, //登录异常

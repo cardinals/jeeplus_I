@@ -1,4 +1,4 @@
-package com.jeeplus.modules.interfaces.api.base;
+package com.jeeplus.modules.business.api.base;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
-import com.jeeplus.modules.interfaces.api.annotation.Json;
+import com.jeeplus.modules.business.api.annotation.Json;
 import lombok.Builder;
 import lombok.experimental.Tolerate;
 

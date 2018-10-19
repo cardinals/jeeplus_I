@@ -1,4 +1,4 @@
-package com.jeeplus.modules.interfaces.api.annotation;
+package com.jeeplus.modules.business.api.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

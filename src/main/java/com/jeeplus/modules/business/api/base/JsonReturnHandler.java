@@ -1,6 +1,6 @@
-package com.jeeplus.modules.interfaces.api.base;
+package com.jeeplus.modules.business.api.base;
 
-import com.jeeplus.modules.interfaces.api.annotation.Json;
+import com.jeeplus.modules.business.api.annotation.Json;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
