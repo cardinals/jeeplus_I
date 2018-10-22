@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,22 +25,17 @@ import java.util.Map;
 public class ScreenApiController extends ApiBaseController {
 
     @Autowired
-    private ScreenService ss;
+    private ScreenService screenService;
     /**
      * 获取屏幕播放信息
      * @return
      */
     @RequestMapping(value="getScreens", method= RequestMethod.POST)
     @ResponseBody
-    public JsonResult getScreens(){
-        Map result = Maps.newHashMap();
-
-        Screen screen = new Screen();
-        Map screenMap = Maps.newHashMap();
-        screenMap.put("id",screen.getId());
-        screenMap.put("type",screen.getType());
-        screenMap.put("area",screen.getArea());
-        screenMap.put("article",screen.getArticle());
+    public JsonResult getScreens(@RequestParam(required = false) String id){
+       Screen info = screenService.get(id);
+        List result = new ArrayList();
+        result.add(info);
 
         return new JsonResult(result);
     }
