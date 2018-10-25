@@ -24,13 +24,14 @@ import java.util.Map;
 
       @RequestMapping(value = "areaMessage",method = RequestMethod.POST)
       @ResponseBody
-      public JsonResult getAreaMessage(){
+      public JsonResult getAreaMessage(@RequestParam(required = false) String id){
 
-          List result = new ArrayList();
+          /*List result = new ArrayList();
 
             List area1 =  areaService.findAll();
-            result.add(area1);
-          /* Area area = new Area();
+            result.add(area1.);*/
+          Map result  = Maps.newHashMap();
+          Area area  =areaService.get(id);
           Map areaMap = Maps.newHashMap();
           areaMap.put("name",area.getName());
           areaMap.put("Code",area.getCode());
@@ -39,7 +40,9 @@ import java.util.Map;
           areaMap.put("sort",area.getSort());
           areaMap.put("parent",area.getParent());
           areaMap.put("parentIds",area.getParentIds());
-*/
+
+          result.put("area",areaMap);
+
           return new JsonResult(result);
 
 

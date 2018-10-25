@@ -396,7 +396,4 @@ public class SystemService extends BaseService implements InitializingBean {
 		// TODO Auto-generated method stub
 		
 	}
-	
-
-	
 }

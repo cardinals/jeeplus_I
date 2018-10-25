@@ -322,6 +322,7 @@ public class UserController extends BaseController {
 		model.addAttribute("Global", new Global());
 		return "modules/sys/userInfo";
 	}
+
 	
 	/**
 	 * 用户信息显示编辑保存
@@ -442,9 +443,7 @@ public class UserController extends BaseController {
 		j.put("data", UserUtils.getUser());
 		return j;
 	}
-	
-	
-	
+
 	/**
 	 * 修改个人用户密码
 	 * @param oldPassword
@@ -489,7 +488,8 @@ public class UserController extends BaseController {
 	@RequiresPermissions("user")
 	@ResponseBody
 	@RequestMapping(value = "treeData")
-	public List<Map<String, Object>> treeData(@RequestParam(required=false) String officeId, HttpServletResponse response) {
+	public List<Map<String, Object>> treeData(@RequestParam(required=
+            false) String officeId, HttpServletResponse response) {
 		List<Map<String, Object>> mapList = Lists.newArrayList();
 		List<User> list = systemService.findUserByOfficeId(officeId);
 		for (int i=0; i<list.size(); i++){
@@ -510,6 +510,7 @@ public class UserController extends BaseController {
 	 * @return
 	 */
 	@ResponseBody
+
 	@RequestMapping(value = "validateLoginName")
 	public boolean validateLoginName(String loginName, HttpServletResponse response) {
 		

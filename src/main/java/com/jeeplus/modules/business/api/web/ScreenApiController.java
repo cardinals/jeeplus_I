@@ -34,10 +34,16 @@ public class ScreenApiController extends ApiBaseController {
     @ResponseBody
     public JsonResult getScreens(@RequestParam(required = false) String id){
        Screen info = screenService.get(id);
-        List result = new ArrayList();
-        result.add(info);
+        Map map = Maps.newHashMap();
+        map.put("remarks",info.getRemarks());
+        map.put("type",info.getType());
+        map.put("area",info.getArea().getName());
+        map.put("artical",info.getArticle());
+        map.put("logo",info.getLogo());
+        map.put("backgroudphoto",info.getBackgroundPhoto());
+        map.put("photoanvideo",info.getPhotoAndVideo());
 
-        return new JsonResult(result);
+        return new JsonResult(map);
     }
 
 }

@@ -126,6 +126,7 @@ public class Global {
 	 */
 	public static Object getConst(String field) {
 		try {
+
 			return Global.class.getField(field).get(null);
 		} catch (Exception e) {
 			// 异常代表无配置，这里什么也不做

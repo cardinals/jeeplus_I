@@ -29,7 +29,7 @@ import java.util.Map;
       @RequestMapping(value = "myinfo",method = RequestMethod.POST)
       @ResponseBody
      public JsonResult getMyInfo(){
-          Map result = Maps.newHashMap();
+         /* Map result = Maps.newHashMap();*/
 
           User user = UserUtils.getUser();
           Map userMap = Maps.newHashMap();
@@ -37,9 +37,9 @@ import java.util.Map;
           userMap.put("photo",user.getPhoto());
           userMap.put("name",user.getName());
           userMap.put("mobile",user.getMobile());
-          result.put("user",userMap);
+          /*result.put("user",userMap);*/
 
-          return new JsonResult(result);
+          return new JsonResult(userMap);
      }
 
 
